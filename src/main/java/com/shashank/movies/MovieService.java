@@ -1,5 +1,6 @@
 package com.shashank.movies;
 
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonBooleanFormatVisitor;
 import com.shashank.movies.entity.Movie;
 import com.shashank.movies.repository.MovieRepository;
 import jakarta.transaction.Transactional;
@@ -43,7 +44,7 @@ public class MovieService {
     }
 
     @Transactional
-    public void updateMovie(Long movieId, String name,Integer runtime) {
+    public void updateMovie(Long movieId, String name, Integer runtime, Float rating,Boolean isAdultRated,List<String> genres) {
         Movie movie = movieRepository.findById(movieId)
                 .orElseThrow(()-> new IllegalStateException(
                         "Movie with Id" + movieId + "does not exist"
@@ -59,6 +60,20 @@ public class MovieService {
             movie.setRuntime(runtime);
         }
 
+        //to update rating
+        if(rating!=null && !Objects.equals(movie.getRating(),rating)){
+            movie.setRating(rating);
+        }
+
+        //to update isAdultRated
+        if(isAdultRated!=null){
+            movie.setAdultRated(isAdultRated);
+        }
+
+        //to update all genres
+        if(genres!=null && !Objects.equals(movie.getGenres(),genres)){
+            movie.setGenres(genres);
+        }
 
     }
 }
