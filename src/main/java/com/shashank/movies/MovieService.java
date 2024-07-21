@@ -1,6 +1,5 @@
 package com.shashank.movies;
 
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonBooleanFormatVisitor;
 import com.shashank.movies.entity.Movie;
 import com.shashank.movies.repository.MovieRepository;
 import jakarta.transaction.Transactional;
