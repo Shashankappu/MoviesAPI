@@ -36,8 +36,11 @@ public class MoviesController {
     public void updateMovie(
             @PathVariable("movieId")Long movieId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer runtime
+            @RequestParam(required = false) Integer runtime,
+            @RequestParam(required = false) Float rating,
+            @RequestParam(required = false) Boolean isAdultRated,
+            @RequestParam(required = false) List<String> genres
     ){
-        movieService.updateMovie(movieId,name,runtime);
+        movieService.updateMovie(movieId,name,runtime,rating,isAdultRated,genres);
     }
 }
