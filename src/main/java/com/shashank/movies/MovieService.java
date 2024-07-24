@@ -24,6 +24,10 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
+    public Movie getMovieById(Long movieId){
+        return movieRepository.findMovieById(movieId);
+    }
+
     public void addNewMovie(Movie movie) {
         Optional<Movie> movieByName = movieRepository.findMovieByName(movie.getName());
         if (movieByName.isPresent()) {
