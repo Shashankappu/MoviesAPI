@@ -1,6 +1,7 @@
 package com.shashank.movies.entity;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Table(name = "MoviesDB")
